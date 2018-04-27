@@ -9,5 +9,9 @@ page = urllib2.urlopen(schedule_page)
 soup = BeautifulSoup(page, 'html.parser')
 
 time = soup.find(id='showschedule').find(class_='tablehead').contents[2].contents[0].get_text()
-print(soup.find(id='showschedule').find(class_='tablehead').contents[2].prettify())
+opponent = soup.find(id='showschedule').find(class_='tablehead').contents[2].find(class_='team-name').find('a').get_text()
+status = soup.find(id='showschedule').find(class_='tablehead').contents[2].find(class_='game-status').get_text()
 
+print time + ' ' + opponent + ' ' + status
+
+# print(soup.find(id='showschedule').find(class_='tablehead').contents[2].find(class_='game-schedule').prettify())
