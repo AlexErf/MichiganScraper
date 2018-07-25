@@ -5,6 +5,7 @@ class Schedule:
         page = urllib2.urlopen(schedule_page)
         soup = BeautifulSoup(page, 'html.parser')
         games = []
+        generateSchedule()
 
     # TODO
     def isGameInProgress(self):
@@ -13,10 +14,13 @@ class Schedule:
     def nextGame(self):
         return
 
+    def generateSchedule(self):
+
+
 
 class Game:
     def __init__(self, date, time, opponent, status):
-        self.date = date
-        self.time = time
+        stringDate = date
+        stringTime = time
         self.opponent = opponent
         self.status = status
